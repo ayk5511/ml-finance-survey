@@ -1,0 +1,110 @@
+\section{Master Comparison Tables}\label{sec:appendix_tables}
+
+This appendix provides standardized comparison tables for each application domain, enabling direct cross-study evaluation. All tables report: authors, year, asset class, sample period, primary ML method, primary benchmark, main performance metric, and data/code availability.
+
+% NOTE: These tables will be populated as the full literature search is completed.
+% The structure below shows the format; entries are illustrative.
+
+\begin{longtable}{p{2.2cm} p{0.8cm} p{1.2cm} p{1.2cm} p{1.8cm} p{1.8cm} p{1.2cm} c c}
+\caption{Master table: Return Prediction studies} \label{tab:master_returns} \\
+\toprule
+\textbf{Study} & \textbf{Year} & \textbf{Asset} & \textbf{Period} & \textbf{ML Method} & \textbf{Benchmark} & \textbf{Metric} & \textbf{Code} & \textbf{Data} \\
+\midrule
+\endfirsthead
+\multicolumn{9}{c}{{\textit{Table \ref{tab:master_returns} continued}}} \\
+\toprule
+\textbf{Study} & \textbf{Year} & \textbf{Asset} & \textbf{Period} & \textbf{ML Method} & \textbf{Benchmark} & \textbf{Metric} & \textbf{Code} & \textbf{Data} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{9}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+
+Gu, Kelly, Xiu & 2020 & US Eq. & 1957--2016 & NN, RF, GBDT & OLS, LASSO & $R^2_{OOS}$ & Y & CRSP \\
+Leippold, Wang & 2022 & Global & 1990--2020 & LightGBM & Linear & $R^2_{OOS}$ & N & DS \\
+Tobek, Hronec & 2021 & US Eq. & 1963--2019 & GBDT & Fama-French & Sharpe & Y & CRSP \\
+Chen et al. & 2024 & US Eq. & 1970--2022 & Attn-GBDT & XGBoost & $R^2_{OOS}$ & N & CRSP \\
+Gu, Kelly, Xiu & 2021 & US Eq. & 1967--2016 & Cond. AE & PCA & $R^2_{OOS}$ & Y & CRSP \\
+Duan et al. & 2022 & US Eq. & 1963--2021 & Transformer & LSTM, GBDT & $R^2_{OOS}$ & N & CRSP \\
+Fischer, Krauss & 2018 & US Eq. & 1992--2015 & LSTM & RF, LOG & Accuracy & Y & Public \\
+Bao et al. & 2017 & US Eq. & 2007--2016 & WSAEs-LSTM & ARIMA & MAPE & N & Yahoo \\
+Lopez-Lira, Tang & 2023 & US Eq. & 2021--2023 & GPT-4 & FinBERT & Sharpe & Y & News \\
+
+Avramov et al. & 2023 & US Eq. & 1960--2020 & Constrained NN & Linear & $R^2_{OOS}$ & N & CRSP \\
+Cong et al. & 2021 & US Eq. & 1963--2019 & Panel Tree & FF5 & $R^2_{OOS}$ & N & CRSP \\
+Kelly, Pruitt, Su & 2019 & US Eq. & 1963--2017 & IPCA & PCA, FF5 & $R^2_{OOS}$ & Y & CRSP \\
+DeMiguel et al. & 2020 & US Eq. & 1963--2018 & LASSO+GBDT & FF5, EW & Sharpe & N & CRSP \\
+Feng, Giglio, Xiu & 2020 & US Eq. & 1967--2016 & LASSO & 150 factors & $R^2_{OOS}$ & N & CRSP \\
+Freyberger et al. & 2020 & US Eq. & 1964--2016 & Adaptive LASSO & Linear & $R^2_{OOS}$ & Y & CRSP \\
+Kaniel et al. & 2023 & US Eq. & 1963--2019 & ML ensemble & FF5 & $R^2_{OOS}$ & N & CRSP \\
+Bianchi et al. & 2021 & US Eq. & 1965--2019 & NN, GBDT & OLS & CER & N & CRSP \\
+Kozak et al. & 2020 & US Eq. & 1963--2017 & Elastic Net & PCA & Sharpe & N & CRSP \\
+Han et al. & 2023 & US, Intl & 1987--2021 & Transformer & NN, GBDT & $R^2_{OOS}$ & N & Various
+
+\end{longtable}
+
+\begin{longtable}{p{2.2cm} p{0.8cm} p{1.2cm} p{1.2cm} p{1.8cm} p{1.8cm} p{1.2cm} c c}
+\caption{Master table: Risk Management studies} \label{tab:master_risk} \\
+\toprule
+\textbf{Study} & \textbf{Year} & \textbf{Asset} & \textbf{Period} & \textbf{ML Method} & \textbf{Benchmark} & \textbf{Metric} & \textbf{Code} & \textbf{Data} \\
+\midrule
+\endfirsthead
+\multicolumn{9}{c}{{\textit{Table \ref{tab:master_risk} continued}}} \\
+\toprule
+\textbf{Study} & \textbf{Year} & \textbf{Asset} & \textbf{Period} & \textbf{ML Method} & \textbf{Benchmark} & \textbf{Metric} & \textbf{Code} & \textbf{Data} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{9}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+
+Bucci (2020) & 2020 & SPX & 2000--2019 & LSTM & GARCH & RMSE & N & Oxford \\
+Zhang et al. & 2019 & SPX & 1990--2018 & GARCH-LSTM & GARCH & MAE & N & Public \\
+Christensen et al. & 2023 & Multi & 2005--2022 & TFT & HAR & QLIKE & N & Public \\
+Barboza et al. & 2017 & US Corp & 1985--2013 & RF, GBDT & Logistic & AUC & Y & Compustat \\
+
+Mittnik et al. & 2022 & Indices & 2000--2021 & LightGBM & HAR-RV & QLIKE & N & Oxford \\
+Luong \& Dok. & 2021 & SPX & 2000--2019 & RF & HAR-RV & MSE & N & Oxford \\
+Taylor (2019) & 2019 & Multi & 1990--2017 & NN-CAViaR & CAViaR & VaR cov. & N & Public \\
+Cont et al. & 2022 & Multi & 2005--2020 & cGAN & Hist.\ Sim & VaR cov. & N & Various \\
+Bussmann et al. & 2021 & Credit & 2005--2019 & GBDT+SHAP & Logistic & AUC & Y & Private \\
+Holopainen (2017) & 2017 & Banking & 1970--2014 & RF & Logistic & AUC & N & BIS \\
+Giudici et al. & 2022 & Banks & 2008--2020 & GNN & CoVaR & MES & N & Private
+
+\end{longtable}
+
+% Additional tables for Portfolio, Derivatives, Microstructure, and Alternative Data
+% will follow the same structure.
+
+\begin{longtable}{p{2.2cm} p{0.8cm} p{1.2cm} p{1.2cm} p{1.8cm} p{1.8cm} p{1.2cm} c c}
+\caption{Master table: Portfolio Optimization studies} \label{tab:master_portfolio} \\
+\toprule
+\textbf{Study} & \textbf{Year} & \textbf{Asset} & \textbf{Period} & \textbf{ML Method} & \textbf{Benchmark} & \textbf{Metric} & \textbf{Code} & \textbf{Data} \\
+\midrule
+\endfirsthead
+\midrule
+\endhead
+\midrule
+\multicolumn{9}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+
+Jiang et al. & 2017 & Crypto & 2015--2017 & CNN-RL & UBAH & Return & Y & Poloniex \\
+Ye et al. & 2020 & US Eq. & 2000--2019 & PPO & EW, MV & Sharpe & N & CRSP \\
+Wang et al. & 2021 & US Eq. & 2009--2021 & FinRL & EW, Min-Var & Sharpe & Y & Yahoo \\
+Zhang et al. & 2020 & US Eq. & 1990--2018 & E2E-NN & MV, EW & Sharpe & N & CRSP \\
+
+Mittnik et al. & 2022 & Indices & 2000--2021 & LightGBM & HAR-RV & QLIKE & N & Oxford \\
+Luong \& Dok. & 2021 & SPX & 2000--2019 & RF & HAR-RV & MSE & N & Oxford \\
+Taylor (2019) & 2019 & Multi & 1990--2017 & NN-CAViaR & CAViaR & VaR cov. & N & Public \\
+Cont et al. & 2022 & Multi & 2005--2020 & cGAN & Hist.\ Sim & VaR cov. & N & Various \\
+Bussmann et al. & 2021 & Credit & 2005--2019 & GBDT+SHAP & Logistic & AUC & Y & Private \\
+Holopainen (2017) & 2017 & Banking & 1970--2014 & RF & Logistic & AUC & N & BIS \\
+Giudici et al. & 2022 & Banks & 2008--2020 & GNN & CoVaR & MES & N & Private
+
+\end{longtable}

@@ -1,0 +1,20 @@
+SSRN Submission Metadata for Paper 1
+=====================================
+
+Title: Machine Learning in Quantitative Finance: A Systematic Review of Methods, Applications, and Open Challenges (2015-2025)
+
+Author: Akram Khan
+Affiliation: Independent Researcher
+
+Abstract:
+This paper presents a systematic review of machine learning applications in quantitative finance over the decade 2015-2025. We survey 227 studies across six application domains -- return prediction, risk management, portfolio optimization, derivatives pricing, market microstructure, and alternative data -- and classify them by methodology into tree-based methods, deep learning architectures, reinforcement learning, natural language processing, and hybrid approaches. We identify three generational shifts in the literature: the dominance of gradient-boosted trees in tabular financial data (2015-2018), the rise of sequence models and attention mechanisms (2018-2022), and the emergence of foundation models and large language models in financial applications (2022-2025). For each domain, we provide standardized comparison tables reporting datasets, methods, performance metrics, and reproducibility status. We find that (i) tree-based ensembles remain state-of-the-art for cross-sectional return prediction, (ii) transformer architectures have largely displaced LSTMs in time-series tasks, (iii) reinforcement learning for portfolio management shows promise but suffers from reproducibility issues, and (iv) LLM-based approaches to sentiment and event extraction represent the fastest-growing subfield. We conclude with a research agenda identifying ten open problems and methodological gaps.
+
+Keywords: machine learning, quantitative finance, systematic review, deep learning, return prediction, portfolio optimization, risk management, NLP in finance
+
+JEL Classification: G11, G12, G14, G17, C45, C55
+
+SSRN Classification Network: Financial Economics Network (FEN)
+Primary Category: Asset Pricing
+Secondary Categories: Risk Management, Machine Learning
+
+File: Khan_2026_ML_Quantitative_Finance_Survey.pdf

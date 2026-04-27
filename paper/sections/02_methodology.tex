@@ -13,7 +13,14 @@ We conducted systematic searches across five databases:
     \item \textbf{Google Scholar} --- supplementary search for grey literature and conference proceedings
 \end{itemize}
 
-Search queries combined financial terms (\texttt{``stock prediction'' OR ``portfolio optimization'' OR ``risk management'' OR ``options pricing'' OR ``market microstructure'' OR ``quantitative finance''}) with ML terms (\texttt{``machine learning'' OR ``deep learning'' OR ``neural network'' OR ``random forest'' OR ``gradient boosting'' OR ``reinforcement learning'' OR ``natural language processing'' OR ``transformer'' OR ``LSTM''}).
+Search queries combined financial terms with ML terms via boolean conjunction:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Financial terms:} ``stock prediction'', ``portfolio optimization'', ``risk management'', ``options pricing'', ``market microstructure'', ``quantitative finance''.
+    \item \textbf{ML terms:} ``machine learning'', ``deep learning'', ``neural network'', ``random forest'', ``gradient boosting'', ``reinforcement learning'', ``natural language processing'', ``transformer'', ``LSTM''.
+\end{itemize}
+
+The query was constructed as \texttt{(financial term) AND (ML term)} for every pair, with results aggregated and deduplicated across the five databases.
 
 Initial searches were conducted in March 2026, with supplementary forward-citation searches completed in April 2026.
 

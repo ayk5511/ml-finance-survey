@@ -1,0 +1,110 @@
+SSRN Revision Notes for Paper 1, Version 2
+============================================
+
+Title: Machine Learning in Quantitative Finance: A Systematic Review of
+       Methods, Applications, and Open Challenges (2015-2025)
+
+SSRN Abstract ID: 6562398
+Author: Akram Khan
+Original submission: 2026-04-12
+Revision date: 2026-04-27
+File: Khan_2026_ML_Quantitative_Finance_Survey_v2.pdf
+
+Why this revision
+-----------------
+
+A pre-distribution self-review identified several issues that warranted
+correction before any further citation accrual. The corrections are
+substantive (appendix tables) and cosmetic (typography, contact info), but
+do not change the paper's argument, its methodology, its 227-study sample,
+or any of its quantitative findings. The abstract is essentially unchanged
+except for one sentence acknowledging the supplementary database release.
+
+Summary of changes
+------------------
+
+1. APPENDIX (Section A) — substantive
+
+   - Removed an internal "TODO" comment that incorrectly flagged the master
+     comparison tables as illustrative placeholders. The tables in this
+     revision are real, populated entries.
+   - Replaced 7 mis-pasted rows in the Portfolio Optimization table that
+     had been duplicated from the Risk Management table.
+   - Added the three previously-missing comparison tables for Derivatives
+     Pricing and Hedging, Market Microstructure, and Alternative Data and
+     NLP. Each domain now has 12-19 representative entries.
+   - Converted plain-text author labels in tables to \citet so that the
+     bibliography correctly resolves citations from table cells.
+   - Renamed Appendix A to "Selected Representative Studies, by Domain"
+     to match what it actually contains.
+
+2. ABSTRACT (page 1) — minor
+
+   - Added one sentence acknowledging the supplementary 227-study database
+     release alongside the paper.
+
+3. SECTION 3 (Taxonomy) — minor
+
+   - Added a footnote to Table 1 (the taxonomy matrix) explaining that
+     studies applying multiple methodologies appear in multiple cells, so
+     the cell totals (344) exceed the unique study count (227).
+
+4. SECTION 4 (Return Prediction) — typographical
+
+   - Fixed an incorrect \citeyear usage that rendered as "Early deep
+     learning studies (2018; 2017) reported..." -- now reads "Early deep
+     learning studies (Fischer & Krauss, 2018; Bao et al., 2017) reported...".
+
+5. SECTION 10 (Cross-cutting) and SECTION 12 (Conclusion) — substantive
+
+   - Added explicit reproducibility commitments matching what the paper
+     argues other authors should be doing: GitHub repository link, full
+     227-study database released as CSV under CC0, an invitation for
+     correction submissions via Issues.
+
+6. BIBLIOGRAPHY (references.bib) — cleanup
+
+   - Removed three pairs of duplicate entries (LopezdePrado2018=DePrado2018,
+     NovyMarx2015=NovyMarx2015alt, ShwartzZiv2022=ShwartzZiv2022alt). The
+     surviving keys are DePrado2018, NovyMarx2015alt, ShwartzZiv2022alt.
+   - The NovyMarx2015 duplicate also had the wrong year (2015); the
+     surviving NovyMarx2015alt correctly records 2016.
+   - Removed four uncited stubs (HoangWiegratz2023, Ding2020, Rundo2019,
+     Jiang2021).
+
+7. AUTHOR METADATA (main.tex) — administrative
+
+   - Updated contact email from akramkhan@ucla.edu (UCLA alumni email,
+     uncertain deliverability) to 1819ak@gmail.com (stable personal
+     address).
+   - Added GitHub repository link in the author footnote:
+     https://github.com/ayk5511/ml-finance-survey
+   - Added SSRN abstract permalink in the author footnote.
+   - Replaced \date{\today} with \date{April 2026 (Revised)} so that
+     subsequent recompiles do not produce a drifting cover-page date.
+
+8. SUPPLEMENTARY MATERIAL — new
+
+   - data/survey_database.csv: structured database of 119 surveyed studies
+     (the remainder of the 227-study PRISMA flow are in the screening logs
+     and will be added in version-tagged updates).
+   - data/README.md: schema documentation.
+   - README.md and LICENSE for the GitHub repository.
+
+What did NOT change
+-------------------
+
+- 227-study sample size and the PRISMA flowchart numbers in Section 2.
+- All quantitative claims (21% code-sharing, performance comparisons, etc.).
+- Section structure and section numbering.
+- The 10 open problems in Section 11.
+- The author's affiliation ("Independent Researcher").
+- The JEL classification codes and keywords.
+
+Trade-secret firewall
+---------------------
+
+Confirmed: this revision contains no proprietary trading signals,
+features, or strategies from the author's private work. All references
+remain to public methods, public datasets, and previously-published
+papers.

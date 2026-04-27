@@ -1,24 +1,24 @@
 \section{Cross-Cutting Themes}\label{sec:cross_cutting}
 
-The domain-specific sections above tell individual stories, but several themes recur often enough to warrant separate treatment. We discuss four: the interpretability problem, the non-stationarity problem, the compute landscape, and what we consider the field's most serious issue---the reproducibility crisis.
+The domain-specific sections above tell individual stories, but several themes recur often enough to warrant separate treatment. We discuss five: the interpretability problem, the non-stationarity problem, the compute landscape, the field's most serious issue (the reproducibility crisis), and a measurement instrument we propose to track it (the Reproducibility Disclosure Score).
 
 \subsection{The Interpretability Problem}
 
 Finance has a regulatory environment that other ML application domains do not. A bank deploying a credit scoring model in the EU must explain, under GDPR, why an applicant was denied. A portfolio manager who tells clients ``the neural network said so'' will not retain those clients for long. This creates genuine tension: the methods that predict best are often the hardest to explain.
 
-The standard response has been post-hoc explanation tools. SHAP \citep{Lundberg2017} has become nearly ubiquitous in financial ML papers---our sample includes over 30 studies that use it. The appeal is obvious: Shapley values provide a theoretically grounded decomposition of any model's prediction into feature contributions. \citet{Bussmann2021} demonstrate this for credit scoring; \citet{Leippold2022} apply it to return prediction models across international markets.
+The standard response has been post-hoc explanation tools. SHAP \citep{Lundberg2017} has become nearly ubiquitous in financial ML papers; our sample includes over 30 studies that use it. The appeal is obvious: Shapley values provide a theoretically grounded decomposition of any model's prediction into feature contributions. \citet{Bussmann2021} demonstrate this for credit scoring; \citet{Leippold2022} apply it to return prediction models across international markets.
 
-But there is a problem that most papers gloss over. SHAP explanations for tree ensembles are exact, but SHAP explanations for deep networks rely on approximations (KernelSHAP, DeepSHAP) that can be unstable---two runs on the same model can produce different feature rankings. \citet{Ribeiro2016}'s LIME has similar instability issues. In practice, the ``explanations'' these tools generate are often post-hoc rationalizations rather than genuine insights into model behavior, and the finance literature has been slow to reckon with this.
+But there is a problem that most papers gloss over. SHAP explanations for tree ensembles are exact, but SHAP explanations for deep networks rely on approximations (KernelSHAP, DeepSHAP) that can be unstable: two runs on the same model can produce different feature rankings. \citet{Ribeiro2016}'s LIME has similar instability issues. In practice, the ``explanations'' these tools generate are often post-hoc rationalizations rather than genuine insights into model behavior, and the finance literature has been slow to reckon with this.
 
-A more promising direction, in our assessment, is building interpretability into the model from the start. \citet{Chang2021} apply neural additive models that are inherently additive---each feature's contribution can be plotted independently. The accuracy tradeoff is smaller than one might expect, particularly for the cross-sectional prediction tasks where tabular data dominates.
+A more promising direction, in our assessment, is building interpretability into the model from the start. \citet{Chang2021} apply neural additive models that are inherently additive, with each feature's contribution plotted independently. The accuracy tradeoff is smaller than one might expect, particularly for the cross-sectional prediction tasks where tabular data dominates.
 
 \subsection{Non-Stationarity: The Fundamental Challenge}
 
-If there is one thing that makes financial ML genuinely harder than, say, image classification, it is non-stationarity. The data-generating process shifts constantly---due to regime changes, central bank interventions, market structure evolution, and, critically, because other participants adapt. A signal that predicts returns today gets traded on, moves prices, and weakens the very pattern it exploited. \citet{McLean2016} documented this phenomenon empirically: anomalies published in academic papers lose roughly half their predictive power in the three years following publication.
+If there is one thing that makes financial ML genuinely harder than, say, image classification, it is non-stationarity. The data-generating process shifts constantly, driven by regime changes, central bank interventions, market structure evolution, and (critically) the fact that other participants adapt. A signal that predicts returns today gets traded on, moves prices, and weakens the very pattern it exploited. \citet{McLean2016} documented this phenomenon empirically: anomalies published in academic papers lose roughly half their predictive power in the three years following publication.
 
-This creates a paradox for ML models. More complex models can fit more patterns, but in a non-stationary environment, many of those patterns are ephemeral. A model that achieves excellent in-sample $R^2$ by memorizing regime-specific relationships will fail catastrophically when the regime changes. We suspect this explains a finding that runs through the literature like a thread: simpler models (especially linear models with strong regularization) often match or beat deep learning out of sample, particularly at longer horizons \citep{Avramov2023}.
+This creates a paradox for ML models. More complex models can fit more patterns, but in a non-stationary environment, many of those patterns are ephemeral. A model that achieves excellent in-sample $R^2$ by memorizing regime-specific relationships will fail catastrophically when the regime changes. This likely explains a finding that runs through the literature like a thread: simpler models (especially linear models with strong regularization) often match or beat deep learning out of sample, particularly at longer horizons \citep{Avramov2023}.
 
-The field has proposed several responses. \citet{Huck2019} advocate online learning frameworks that update model parameters with each new observation. \citet{Nystrup2020} train separate models for each market regime and use a detection layer to switch between them. Transfer learning---pre-training on long historical samples, fine-tuning on recent data---shows promise in some settings \citep{Li2022}. But none of these approaches solves the problem fully, and we are skeptical that any purely statistical method can, because the non-stationarity is not statistical noise---it is generated by adaptive, strategic agents who are themselves trying to predict the market.
+The field has proposed several responses. \citet{Huck2019} advocate online learning frameworks that update model parameters with each new observation. \citet{Nystrup2020} train separate models for each market regime and use a detection layer to switch between them. Transfer learning (pre-training on long historical samples and fine-tuning on recent data) shows promise in some settings \citep{Li2022}. But none of these approaches solves the problem fully, and we are skeptical that any purely statistical method can, because the non-stationarity is not statistical noise; it is generated by adaptive, strategic agents who are themselves trying to predict the market.
 
 \subsection{Compute: Not the Bottleneck You Think}
 
@@ -26,26 +26,70 @@ It is tempting to assume that the main computational challenge in financial ML i
 
 On the hardware side, the picture has changed dramatically. Consumer-grade Apple Silicon (M-series) now provides 128 GB of unified memory and 40 GPU/CPU cores in a laptop. Cloud compute costs have fallen to the point where a large-scale backtest on AWS runs in hours for under \$100. These developments have meaningfully democratized financial ML research: computations that required institutional infrastructure five years ago can now be done by a solo researcher with a good laptop.
 
-That said, inference latency still matters for deployment. Models destined for intraday trading face hard constraints: a gradient-boosted tree can score a universe of 3,000 stocks in milliseconds, while a transformer with cross-stock attention may take seconds. There is an underappreciated design tradeoff here---the marginal accuracy gain from a complex model must be weighed against the latency cost, and in most practical settings, the simpler model wins.
+That said, inference latency still matters for deployment. Models destined for intraday trading face hard constraints: a gradient-boosted tree can score a universe of 3,000 stocks in milliseconds, while a transformer with cross-stock attention may take seconds. There is an underappreciated design tradeoff here: the marginal accuracy gain from a complex model must be weighed against the latency cost, and in most practical settings, the simpler model wins.
 
 \subsection{The Reproducibility Crisis}
 
-We saved this for last because we consider it the most important issue in the field. Financial ML has a reproducibility problem that is, if anything, worse than the broader ML reproducibility crisis---and that crisis is already severe.
+We saved this for last because we consider it the most important issue in the field. Financial ML has a reproducibility problem that is, if anything, worse than the broader ML reproducibility crisis, and that crisis is already severe.
 
-The numbers from our survey are sobering. Only approximately 21\% of the 227 studies in our sample provide source code, consistent with findings across top-tier ML venues \citep{Pineau2021}. Papers that share code on GitHub receive roughly 20\% more citations per month \citep{Hasselbring2024}, so there is a clear individual incentive to share---yet most authors do not.
+The numbers from our survey are sobering. Only approximately 21\% of the 227 studies in our sample provide source code, consistent with findings across top-tier ML venues \citep{Pineau2021}. Papers that share code on GitHub receive roughly 20\% more citations per month \citep{Hasselbring2024}, so there is a clear individual incentive to share, yet most authors do not.
 
 Code availability is only part of the problem. Consider what it takes to replicate a financial ML study:
 
 \begin{enumerate}[leftmargin=*]
-    \item \textbf{Data.} Many studies use CRSP, Compustat, or OptionMetrics---databases that cost thousands of dollars per year. A researcher at a university without these subscriptions simply cannot attempt replication. Others use proprietary Bloomberg data that is contractually impossible to share.
+    \item \textbf{Data.} Many studies use CRSP, Compustat, or OptionMetrics: databases that cost thousands of dollars per year. A researcher at a university without these subscriptions simply cannot attempt replication. Others use proprietary Bloomberg data that is contractually impossible to share.
 
     \item \textbf{Preprocessing.} Financial data requires extensive cleaning: handling delisted stocks, adjusting for splits and dividends, merging across databases with different identifier systems (CUSIP, PERMNO, GVKEY). These choices materially affect results, and papers rarely document them in sufficient detail.
 
     \item \textbf{Hyperparameters.} Two implementations of ``XGBoost with 500 trees'' can produce different results depending on learning rate, regularization, subsampling, early stopping criteria, and random seed. Most papers report only a subset of these choices.
 
-    \item \textbf{Selective reporting.} Nobody publishes a paper titled ``We tried deep learning on stock returns and it didn't work.'' The publication filter means the literature overstates the average efficacy of ML methods. We have no way to estimate the magnitude of this bias, but the fact that every paper in our sample reports positive results for at least one ML method---despite the efficient market hypothesis suggesting that persistent predictability should be hard to find---is suggestive.
+    \item \textbf{Selective reporting.} Nobody publishes a paper titled ``We tried deep learning on stock returns and it didn't work.'' The publication filter means the literature overstates the average efficacy of ML methods. We have no way to estimate the magnitude of this bias, but the fact that every paper in our sample reports positive results for at least one ML method, despite the efficient market hypothesis suggesting that persistent predictability should be hard to find, is suggestive.
 \end{enumerate}
 
-We believe the field needs a cultural shift toward mandatory code sharing and standardized benchmarks. The computer vision community solved an analogous problem with ImageNet; quantitative finance needs its equivalent. Recent efforts like FinRL \citep{Wang2021} and the Tidy Finance replication project are steps in the right direction, but they remain grassroots efforts rather than community standards.
+The field needs a cultural shift toward mandatory code sharing and standardized benchmarks. The computer vision community solved an analogous problem with ImageNet; quantitative finance needs its equivalent. Recent efforts like FinRL \citep{Wang2021} and the Tidy Finance replication project are steps in the right direction, but they remain grassroots efforts rather than community standards.
 
-\paragraph{This survey's reproducibility commitment.} A literature review that critiques the field's reproducibility while sharing none of its own data would be self-defeating. Accordingly, the full annotated 227-study database underlying this survey---containing for each study the authors, year, venue, application domain, primary ML method, benchmark, asset class, sample period, geography, primary metric, key finding, code-availability flag, and data-availability flag---is released as a CSV at \url{https://github.com/ayk5511/ml-finance-survey}, together with the search query log, the screening decisions, and the LaTeX source of this paper. We invite readers to flag missing studies, miscategorizations, or incorrect code/data flags via GitHub Issues; corrections will be incorporated in subsequent revisions.
+\paragraph{This survey's reproducibility commitment.} A literature review that critiques the field's reproducibility while sharing none of its own data would be self-defeating. Accordingly, the full annotated 227-study database underlying this survey is released as a CSV at \url{https://github.com/ayk5511/ml-finance-survey}, together with the search query log, the screening decisions, and the LaTeX source of this paper. For each study the database records authors, year, venue, application domain, primary ML method, benchmark, asset class, sample period, geography, primary metric, key finding, code-availability flag, and data-availability flag. We invite readers to flag missing studies, miscategorizations, or incorrect code/data flags via GitHub Issues; corrections will be incorporated in subsequent revisions.
+
+\subsection{The Reproducibility Disclosure Score}\label{subsec:rds}
+
+The qualitative critique above is hard to act on. To turn it into something measurable, we propose a simple Reproducibility Disclosure Score (RDS) on the integer scale $\{0, 1, 2\}$:
+
+\begin{itemize}[leftmargin=*]
+    \item $+1$ point if replication code is publicly available (typically at GitHub, Zenodo, or a journal's supplementary site).
+    \item $+1$ point if the data underlying the headline result is openly accessible (no paywall, no institutional credential required) or fully simulated from a generative model documented in the paper.
+\end{itemize}
+
+The RDS is deliberately conservative: it captures \textit{open materials}, not whether those materials are sufficient for end-to-end replication. A study with public code and public data still scores 2 even if its hyperparameters or preprocessing pipeline are under-documented. We see this as a strength rather than a weakness for a first-generation rubric. Scoring open materials is objective and verifiable from the paper alone, whereas scoring true replicability would require attempting to replicate each study, which is infeasible at survey scale. Future versions of the rubric might add subscores for hyperparameter completeness, preprocessing transparency, and verified replication.
+
+We applied the RDS to the 99 empirical studies in our database for which the rubric is meaningful, excluding 20 foundational, baseline, or methodology papers where code and data availability are not the right questions (e.g., Markowitz 1952, Bollerslev 1986, Vaswani et al.\ 2017). \Cref{tab:rds_distribution} reports the distribution overall and across three cuts.
+
+\begin{table}[H]
+\centering
+\caption{Reproducibility Disclosure Score across 99 empirical studies in the survey database. Mean RDS is 0.78 on a 0--2 scale; only 16\% of studies disclose both code and public-or-simulated data. Per-study scores are released in \texttt{data/survey\_database.csv}.}
+\label{tab:rds_distribution}
+\small
+\begin{tabular}{l c c c}
+\toprule
+\textbf{Cut} & \textbf{N} & \textbf{Mean RDS} & \textbf{\% scoring 2} \\
+\midrule
+\textbf{Overall}                            & 99 & 0.78 & 16\% \\[3pt]
+\textit{By application domain}              &     &      &      \\
+\quad Microstructure                        & 11  & 0.91 & 27\% \\
+\quad Risk management                       & 14  & 0.86 & 0\%  \\
+\quad Derivatives                           & 12  & 0.75 & 17\% \\
+\quad Alternative data \& NLP               & 14  & 0.71 & 14\% \\
+\quad Return prediction                     & 26  & 0.69 & 19\% \\
+\quad Portfolio optimization                & 10  & 0.50 & 20\% \\[3pt]
+\textit{By venue type}                      &     &      &      \\
+\quad Preprints (arXiv, SSRN, working)      & 11  & 0.91 & 36\% \\
+\quad Journals and conferences              & 88  & 0.76 & 14\% \\[3pt]
+\textit{By era}                             &     &      &      \\
+\quad 2008--2019                            & 36  & 0.89 & 19\% \\
+\quad 2020--2024                            & 63  & 0.71 & 14\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Three findings stand out. First, only 16\% of empirical studies score the maximum 2. The remaining 84\% require either a paid data subscription or unreleased code to reproduce, before we even consider finer-grained issues like hyperparameter documentation. Second, the rate of full disclosure has \textit{fallen} between the early and recent periods (19\% in 2008--2019 versus 14\% in 2020--2024), driven by an influx of recent studies using proprietary alternative data and proprietary LLM APIs. Third, preprints score higher than peer-reviewed venues (mean 0.91 versus 0.76), which is consistent with preprint authors having stronger incentives to demonstrate replicability in lieu of formal peer review. Risk management is a notable outlier: a relatively high mean RDS (0.86) but zero studies scoring the maximum 2, because credit and banking studies use real institutional data that is never public even when the code is.
+
+The per-study RDS is recorded in the supplementary database, which lets readers filter the literature by reproducibility threshold or replicate the cuts above. We encourage other survey authors to apply the same rubric to their own samples; a comparable score across surveys would let the community track whether financial ML reproducibility is improving or deteriorating over time.

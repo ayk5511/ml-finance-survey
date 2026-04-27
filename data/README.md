@@ -21,6 +21,7 @@ This file documents the structure of `survey_database.csv`, which contains struc
 | `key_finding` | string | One-sentence summary of the main result. |
 | `code_available` | enum | `Y`, `N`, `—` (not applicable). |
 | `data_availability` | enum | `public`, `proprietary`, `mixed`, `simulation`, `—`. |
+| `rds_score` | int 0–2 or empty | Reproducibility Disclosure Score (see §10.5 of the paper). `+1` if `code_available = Y`, `+1` if `data_availability ∈ {public, simulation}`. Empty for foundational/baseline/methodology papers where the rubric does not apply. |
 
 ### Coverage
 
@@ -34,6 +35,7 @@ This file documents the structure of `survey_database.csv`, which contains struc
 - `key_finding` summaries are paraphrases of each paper's headline result; they are not verbatim from the source.
 - The `code_available` flag reflects public availability at the time the row was added. It is not re-checked automatically — readers spotting newly-released code are encouraged to file a PR.
 - For `methodology` rows (foundational ML papers like the LSTM or Transformer original), domain/asset/period are `—` because the paper is not a finance application.
+- `rds_score` was computed from the existing `code_available` and `data_availability` fields. The 99 rows with a non-empty score are the "applicable empirical studies" referenced in §10.5; the 20 rows with empty `rds_score` are foundational, baseline, or methodology papers where the rubric does not apply.
 
 ### Versioning
 

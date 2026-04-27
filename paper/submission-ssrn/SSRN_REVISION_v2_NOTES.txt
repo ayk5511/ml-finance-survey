@@ -14,11 +14,13 @@ Why this revision
 -----------------
 
 A pre-distribution self-review identified several issues that warranted
-correction before any further citation accrual. The corrections are
-substantive (appendix tables) and cosmetic (typography, contact info), but
-do not change the paper's argument, its methodology, its 227-study sample,
-or any of its quantitative findings. The abstract is essentially unchanged
-except for one sentence acknowledging the supplementary database release.
+correction before any further citation accrual. The corrections include
+both substantive additions (a new methodological contribution: the
+Reproducibility Disclosure Score, applied to 99 empirical studies) and
+style cleanup (typography, contact info, prose tightening). The 227-study
+sample and the qualitative findings are unchanged; the abstract now adds
+two sentences flagging the new RDS contribution and the rewritten
+Section 11.10 on audit trails for regulator-defensible AI.
 
 Summary of changes
 ------------------
@@ -101,10 +103,46 @@ What did NOT change
 - The author's affiliation ("Independent Researcher").
 - The JEL classification codes and keywords.
 
+9. NEW SUBSECTION 10.5 — substantive
+
+   - Added "The Reproducibility Disclosure Score" subsection with a
+     defined 0-2 rubric (+1 for code public, +1 for openly accessible
+     or fully simulated data) applied to 99 of the 119 empirical
+     studies in the released database. New Table 5 reports the
+     distribution by application domain, venue type, and era. Headline:
+     mean RDS 0.78 on the 0-2 scale; only 16% disclose both code and
+     public/simulated data. The per-study scores ship in the
+     supplementary CSV (data/survey_database.csv) under a new column
+     rds_score. This turns the survey from a description into a
+     reusable measurement instrument.
+
+10. SECTION 11.10 — replaced
+
+    - The original "Quantum Computing (Eventually)" subsection was
+      filler, admitted as not-actionable in its own opening sentence.
+      Replaced with "Audit Trails for Regulator-Defensible AI", which
+      surfaces a concrete open research problem at the intersection of
+      SR 11-7 / OCC 2011-12 / EU AI Act compliance requirements and the
+      lack of audit-grade artifacts produced by current ML training
+      pipelines. The replacement is a closer fit to the paper's
+      reproducibility theme and is more useful to practitioners.
+
+11. STYLE CLEANUP — minor
+
+    - Replaced 24 in-prose em-dash parenthetical pairs with commas,
+      parentheses, semicolons, or restructured sentences. Bullet-list
+      em-dash separators (formatted as "\item \textbf{X} --- Y") were
+      preserved as standard typography.
+    - Removed AI-fingerprint phrases: "we believe" (1), "comprehensive"
+      (1), "paradigm shift" (1), "ad hoc" (1), "robust" (1), where the
+      original did not need them.
+
 Trade-secret firewall
 ---------------------
 
 Confirmed: this revision contains no proprietary trading signals,
 features, or strategies from the author's private work. All references
 remain to public methods, public datasets, and previously-published
-papers.
+papers. The RDS rubric and the audit-trail problem statement use only
+publicly available regulatory framework references (Federal Reserve
+SR 11-7, OCC 2011-12, EU AI Act).

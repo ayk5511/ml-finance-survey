@@ -4,7 +4,7 @@ Return prediction is the oldest and most heavily studied application of ML in fi
 
 \subsection{Cross-Sectional Return Prediction}
 
-The foundational work in ML-based cross-sectional prediction is \citet{Gu2020}, who systematically compare linear models, tree-based methods, and neural networks for predicting the cross-section of monthly US stock returns. Their key findings---that neural networks and gradient-boosted trees significantly outperform linear models, and that interaction effects between firm characteristics and macroeconomic variables are crucial---have shaped the subsequent literature.
+The foundational work in ML-based cross-sectional prediction is \citet{Gu2020}, who systematically compare linear models, tree-based methods, and neural networks for predicting the cross-section of monthly US stock returns. Their key findings have shaped the subsequent literature: neural networks and gradient-boosted trees significantly outperform linear models, and interaction effects between firm characteristics and macroeconomic variables matter.
 
 \subsubsection{The Tree-Based Dominance}
 
@@ -55,7 +55,7 @@ Duan et al.\ (2022)      & US     & 1963--2021 & Transformer & $R^2_{\text{OOS}}
 
 \subsection{Time-Series Return Prediction}
 
-Time-series prediction---forecasting aggregate market or individual asset returns over time---faces the fundamental challenge that financial returns are close to unpredictable at short horizons \citep{Welch2008}. ML methods have been applied to this problem with mixed results:
+Time-series prediction (forecasting aggregate market or individual asset returns over time) faces the fundamental challenge that financial returns are close to unpredictable at short horizons \citep{Welch2008}. ML methods have been applied to this problem with mixed results:
 
 \begin{itemize}[leftmargin=*]
     \item \textbf{LSTM/GRU models:} Early deep learning studies \citep{Fischer2018, Bao2017} reported strong performance for individual stock prediction using LSTMs, but subsequent work has raised concerns about look-ahead bias and overfitting in these results.
@@ -70,7 +70,7 @@ Time-series prediction---forecasting aggregate market or individual asset return
 A critical contribution of the recent literature is the identification of methodological pitfalls that inflate reported performance:
 
 \begin{enumerate}[leftmargin=*]
-    \item \textbf{Look-ahead bias:} Using future information in feature construction or normalization. Even subtle forms---such as using the full-sample mean for standardization---can materially affect results \citep{DePrado2018}.
+    \item \textbf{Look-ahead bias:} Using future information in feature construction or normalization. Even subtle forms, such as using the full-sample mean for standardization, can materially affect results \citep{DePrado2018}.
 
     \item \textbf{Survivorship bias:} Training only on stocks that survived to the end of the sample overstates predictability.
 
@@ -83,4 +83,4 @@ A critical contribution of the recent literature is the identification of method
     \item \textbf{Short evaluation periods:} Strong performance during 2009--2020 (a prolonged bull market) does not generalize to different market regimes.
 \end{enumerate}
 
-We recommend that future studies adopt the evaluation protocol of \citet{Gu2020}---temporal splitting, economic metrics alongside statistical metrics, and comparison to appropriate benchmarks---as a minimum standard. Frankly, the fact that papers are still published in 2025 using $k$-fold cross-validation on time series data suggests that referee standards in some venues are too low.
+We recommend that future studies adopt the evaluation protocol of \citet{Gu2020} as a minimum standard: temporal splitting, economic metrics alongside statistical metrics, and comparison to appropriate benchmarks. Frankly, the fact that papers are still published in 2025 using $k$-fold cross-validation on time series data suggests that referee standards in some venues are too low.

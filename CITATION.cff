@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+title: "Machine Learning in Quantitative Finance: A Systematic Review of Methods, Applications, and Open Challenges (2015-2025)"
+message: "If you use this repository, the survey database, or the Reproducibility Disclosure Score rubric, please cite the SSRN working paper."
+type: software
+authors:
+  - family-names: Khan
+    given-names: Akram
+    orcid: "https://orcid.org/0009-0002-7521-8648"
+    email: 1819ak@gmail.com
+date-released: 2026-04-12
+version: "2.0.0"
+url: "https://github.com/ayk5511/ml-finance-survey"
+repository-code: "https://github.com/ayk5511/ml-finance-survey"
+license: CC-BY-4.0
+keywords:
+  - machine learning
+  - quantitative finance
+  - systematic review
+  - deep learning
+  - return prediction
+  - portfolio optimization
+  - risk management
+  - NLP in finance
+  - reproducibility
+  - Reproducibility Disclosure Score
+preferred-citation:
+  type: article
+  title: "Machine Learning in Quantitative Finance: A Systematic Review of Methods, Applications, and Open Challenges (2015-2025)"
+  authors:
+    - family-names: Khan
+      given-names: Akram
+      orcid: "https://orcid.org/0009-0002-7521-8648"
+  year: 2026
+  month: 4
+  journal: "SSRN Working Paper"
+  number: "6562398"
+  url: "https://ssrn.com/abstract=6562398"

@@ -10,6 +10,7 @@ It contains the LaTeX source of the paper, the bibliography, the supplementary s
 **ORCID:** [0009-0002-7521-8648](https://orcid.org/0009-0002-7521-8648)
 **SSRN abstract:** [6562398](https://ssrn.com/abstract=6562398)
 **Contact:** [1819ak@gmail.com](mailto:1819ak@gmail.com)
+**Companion paper:** Khan (2026), *Volatility Forecasting with Machine Learning: A Horse Race Across GARCH, HAR, and Tree-Based Models*, SSRN [6663418](https://ssrn.com/abstract=6663418) — empirical case study scoring 2 on the Reproducibility Disclosure Score rubric introduced in §10.5 of this paper. Repository: [github.com/ayk5511/volatility-forecasting](https://github.com/ayk5511/volatility-forecasting).
 
 ## Contents
 

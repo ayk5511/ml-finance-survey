@@ -13,7 +13,7 @@ The idea of using neural networks as function approximators for option pricing d
 
     \item \citet{Horvath2021} extend this to general stochastic volatility models, showing that neural network approximation of the pricing map is a viable alternative to finite-difference PDE solvers for complex payoffs.
 
-    \item \citet{Ruf2020} compare neural network approaches to option pricing across data-driven models (trained on market data), model-driven approaches (trained on model outputs), and hybrid methods. They find that data-driven approaches outperform parametric models for plain vanilla options but struggle with illiquid exotics.
+    \item \citet{Ruf2020} run a broad comparison of neural-network approaches to option pricing, covering data-driven models (trained on market data), model-driven approaches (trained on model outputs), and hybrid methods. They find that data-driven approaches outperform parametric models for plain vanilla options but struggle with illiquid exotics.
 \end{itemize}
 
 \subsubsection{Implied Volatility Surface Modeling}
@@ -25,7 +25,10 @@ The implied volatility surface, the function mapping strike and maturity to Blac
 
     \item \citet{Cohen2023} use variational autoencoders to learn a low-dimensional representation of the vol surface, enabling surface interpolation, extrapolation, and scenario generation.
 
-    \item \textbf{SVI and beyond:} The Stochastic Volatility Inspired (SVI) parameterization \citep{Gatheral2014} remains the industry benchmark. ML approaches must be compared against this well-calibrated parametric model, and gains are typically in the tails and short maturities.
+    \item \textbf{SVI and beyond:} the Stochastic Volatility Inspired
+    parameterization \citep{Gatheral2014} remains the industry benchmark.
+    ML approaches must be compared against this calibrated parametric
+    model; gains typically show up in the tails and at short maturities.
 \end{itemize}
 
 \subsection{Dynamic Hedging}
@@ -54,4 +57,4 @@ For complex derivatives where analytical pricing is unavailable:
 
 \subsection{Summary}
 
-In our view, derivatives pricing is the most genuinely successful application domain for deep learning in finance, and it is telling that it gets less attention than return prediction. The reasons for its success are structural: (i) the target function is smooth and structured, (ii) training data can be generated synthetically from pricing models, (iii) the accuracy requirements are well-defined, and (iv) the computational savings are economically significant. Deep hedging marks a clean break from model-based hedging and is increasingly adopted in practice.
+In our view, derivatives pricing is the most genuinely successful application domain for deep learning in finance, and it is telling that it gets less attention than return prediction. The reasons for its success are structural: (i) the target function is smooth and structured, (ii) training data can be generated synthetically from pricing models, (iii) the accuracy requirements are well-defined, and (iv) the computational savings are economically significant. Deep hedging represents a paradigm shift from model-based to data-driven hedging that is increasingly adopted in practice.

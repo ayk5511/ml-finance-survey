@@ -4,7 +4,7 @@ Return prediction is the oldest and most heavily studied application of ML in fi
 
 \subsection{Cross-Sectional Return Prediction}
 
-The foundational work in ML-based cross-sectional prediction is \citet{Gu2020}, who systematically compare linear models, tree-based methods, and neural networks for predicting the cross-section of monthly US stock returns. Their key findings have shaped the subsequent literature: neural networks and gradient-boosted trees significantly outperform linear models, and interaction effects between firm characteristics and macroeconomic variables matter.
+The foundational work in ML-based cross-sectional prediction is \citet{Gu2020}, who systematically compare linear models, tree-based methods, and neural networks for predicting the cross-section of monthly US stock returns. Their two key findings have shaped the subsequent literature: neural networks and gradient-boosted trees significantly outperform linear models, and interaction effects between firm characteristics and macroeconomic variables are crucial to that outperformance.
 
 \subsubsection{The Tree-Based Dominance}
 
@@ -38,17 +38,18 @@ Neural network approaches to cross-sectional prediction include:
 \centering
 \caption{Selected studies in cross-sectional return prediction}
 \label{tab:cross_section}
-\small
-\begin{tabularx}{\textwidth}{l l l l l c}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}p{3.4cm} l l l X c@{}}
 \toprule
 \textbf{Study} & \textbf{Market} & \textbf{Period} & \textbf{Best Method} & \textbf{Metric} & \textbf{Code} \\
 \midrule
-Gu et al.\ (2020)        & US     & 1957--2016 & NN3       & $R^2_{\text{OOS}}$ = 0.40\% & Yes \\
-Leippold \& Wang (2022)  & Global & 1990--2020 & LightGBM  & $R^2_{\text{OOS}}$ varies   & No \\
-Tobek \& Hronec (2021)   & US     & 1963--2019 & GBDT      & Sharpe net of costs         & Yes \\
-Chen et al.\ (2024)      & US     & 1970--2022 & Attn-GBDT & $R^2_{\text{OOS}}$ = 0.52\% & No \\
-Gu et al.\ (2021)        & US     & 1967--2016 & CA-AE     & $R^2_{\text{OOS}}$          & Yes \\
-Duan et al.\ (2022)      & US     & 1963--2021 & Transformer & $R^2_{\text{OOS}}$        & No \\
+Gu et al.\ (2020)        & US     & 1957--2016 & NN3         & $R^2_{\text{OOS}}=0.40\%$ & Yes \\
+Leippold \& Wang (2022)  & Global & 1990--2020 & LightGBM    & $R^2_{\text{OOS}}$ varies & No  \\
+Tobek \& Hronec (2021)   & US     & 1963--2019 & GBDT        & Sharpe net of costs       & Yes \\
+Chen et al.\ (2024)      & US     & 1970--2022 & Attn-GBDT   & $R^2_{\text{OOS}}=0.52\%$ & No  \\
+Gu et al.\ (2021)        & US     & 1967--2016 & CA-AE       & $R^2_{\text{OOS}}$        & Yes \\
+Duan et al.\ (2022)      & US     & 1963--2021 & Transformer & $R^2_{\text{OOS}}$        & No  \\
 \bottomrule
 \end{tabularx}
 \end{table}

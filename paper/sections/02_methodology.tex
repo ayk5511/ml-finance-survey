@@ -6,11 +6,11 @@ We follow the PRISMA (Preferred Reporting Items for Systematic Reviews and Meta-
 
 We conducted systematic searches across five databases:
 \begin{itemize}[leftmargin=*]
-    \item \textbf{Scopus} --- comprehensive coverage of finance and CS journals
-    \item \textbf{Web of Science} --- primary citation database for impact tracking
-    \item \textbf{SSRN} --- working papers and preprints in finance
-    \item \textbf{arXiv (q-fin, cs.LG, stat.ML)} --- preprints in quantitative finance and ML
-    \item \textbf{Google Scholar} --- supplementary search for grey literature and conference proceedings
+    \item \textbf{Scopus}: broad coverage of finance and CS journals.
+    \item \textbf{Web of Science}: primary citation database for impact tracking.
+    \item \textbf{SSRN}: working papers and preprints in finance.
+    \item \textbf{arXiv (q-fin, cs.LG, stat.ML)}: preprints in quantitative finance and ML.
+    \item \textbf{Google Scholar}: supplementary search for grey literature and conference proceedings.
 \end{itemize}
 
 Search queries combined financial terms with ML terms via boolean conjunction:
@@ -47,11 +47,23 @@ Uses real or realistic simulated financial data & Uses only toy/synthetic exampl
 \subsection{Selection Process}
 
 \begin{enumerate}[leftmargin=*]
-    \item \textbf{Identification:} Database searches returned 4,783 unique records after deduplication. The arXiv q-fin section alone contributed over 12,600 submissions during our review period (2015--2025), growing from 852 total submissions in 2015 to 2,435 in 2024---a nearly threefold increase reflecting the rapid growth of quantitative finance research \citep{arXivStats2025}. Scopus, Web of Science, and SSRN contributed the remainder.
+    \item \textbf{Identification:} Database searches returned 4,783 unique records after deduplication. The arXiv q-fin section alone contributed over 12,600 submissions during our review period (2015--2025), growing from 852 total submissions in 2015 to 2,435 in 2024, a nearly threefold increase reflecting the rapid growth of quantitative finance research \citep{arXivStats2025}. Scopus, Web of Science, and SSRN contributed the remainder.
     \item \textbf{Screening:} Title and abstract screening against inclusion criteria reduced the set to 847 papers.
     \item \textbf{Eligibility:} Full-text review of screened papers identified 196 eligible studies.
     \item \textbf{Inclusion:} Forward and backward citation searches added 31 additional papers, yielding a final sample of 227 studies.
 \end{enumerate}
+
+\paragraph{Released subset of the 227-study sample.} The supplementary CSV
+(\Cref{sec:cross_cutting}) carries structured records for 119 of the 227
+included studies. That subset breaks down as 99 RDS-scored entries and 20
+unscored seminal or baseline references retained for the comparison tables
+in \Cref{sec:appendix_tables}. The remaining 108 studies are cited in-line
+in \Cref{sec:return_prediction} through \Cref{sec:alternative_data}; their
+extraction-field rows live in the screening logs in the GitHub repository
+and will be merged into the released CSV in version-tagged updates. All
+quantitative claims in the paper are computed against the full 227-study
+sample unless we say otherwise, and where the released 119-row subset
+differs materially we report both.
 
 \subsection{Data Extraction Protocol}
 

@@ -28,7 +28,7 @@ Beyond point prediction, some studies model the full distribution of LOB evoluti
 
 \subsection{Optimal Execution}
 
-Optimal execution, minimizing the market impact of large orders, is a natural RL application:
+Optimal execution, the problem of minimizing the market impact of large orders, is a natural RL application:
 
 \begin{itemize}[leftmargin=*]
     \item \citet{Ning2021} compare RL-based execution strategies (DQN, PPO) against the Almgren-Chriss analytical benchmark \citep{Almgren2001} and find that RL agents learn to exploit intraday liquidity patterns, achieving lower implementation shortfall.
@@ -40,7 +40,7 @@ Optimal execution, minimizing the market impact of large orders, is a natural RL
 
 \subsection{Market Making}
 
-Automated market making, providing liquidity by continuously quoting bid and ask prices, has been extensively studied with RL:
+Automated market making, the practice of providing liquidity by continuously quoting bid and ask prices, has been extensively studied with RL:
 
 \begin{itemize}[leftmargin=*]
     \item \citet{Gueant2017} provide the theoretical foundation: Avellaneda-Stoikov style models with analytical solutions that serve as benchmarks for ML approaches.
@@ -60,4 +60,4 @@ A distinctive feature of the microstructure literature is the data access barrie
     \item Crypto exchanges (Binance, Coinbase) provide free LOB data, making cryptocurrency microstructure an increasingly popular testbed.
 \end{itemize}
 
-This data bottleneck explains the odd situation where microstructure, a domain that generates more data per day than any other in finance, is under-represented in the ML literature. Researchers who want to work on LOB modeling face a choice between the small, dated FI-2010 dataset and expensive commercial data. The growing availability of free crypto exchange data may eventually break this logjam, though cryptocurrency market microstructure has its own peculiarities.
+This data bottleneck explains the odd situation that microstructure, a domain that generates more data per day than any other in finance, is under-represented in the ML literature. Researchers who want to work on LOB modeling face a choice between the small, dated FI-2010 dataset and expensive commercial data. The growing availability of free crypto exchange data may eventually break this logjam, though cryptocurrency market microstructure has its own peculiarities.

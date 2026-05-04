@@ -1,6 +1,6 @@
 \section{Alternative Data and Natural Language Processing}\label{sec:alternative_data}
 
-Alternative data (non-traditional sources including news, social media, satellite imagery, web traffic, and corporate filings) represents the fastest-growing application area for ML in finance. NLP methods are the primary tool for extracting signals from textual alternative data.
+Alternative data, in the sense of non-traditional sources such as news, social media, satellite imagery, web traffic, and corporate filings, is the fastest-growing application area for ML in finance. NLP methods are the primary tool for extracting signals from textual alternative data.
 
 \subsection{Financial Sentiment Analysis}
 
@@ -15,9 +15,9 @@ The transformer revolution has reached financial NLP:
 \begin{itemize}[leftmargin=*]
     \item \textbf{FinBERT} \citep{Araci2019}: BERT fine-tuned on financial news. Achieves substantially higher accuracy than dictionary methods and general-purpose BERT on financial sentiment classification.
 
-    \item \textbf{BloombergGPT} \citep{Wu2023}: A 50-billion parameter LLM trained on Bloomberg's proprietary corpus of financial documents. Outperforms general-purpose LLMs on financial NLP benchmarks while maintaining competitive general capabilities.
+    \item \textbf{BloombergGPT} \citep{Wu2023}: a 50B-parameter LLM trained on Bloomberg's proprietary corpus of financial documents. Beats general-purpose LLMs on financial NLP benchmarks while staying competitive on general-domain tasks.
 
-    \item \textbf{General LLMs (GPT-4, Claude):} \citet{LopezLira2023} show that GPT-3.5/4 can predict stock returns from news headlines, with performance comparable to purpose-trained models. The zero-shot capability eliminates the need for labeled training data.
+    \item \textbf{General-purpose LLMs} (GPT-4, Claude): \citet{LopezLira2023} show that GPT-3.5/4 can predict stock returns from news headlines, with performance comparable to purpose-trained models. The zero-shot capability eliminates the need for labeled training data.
 
     \item \textbf{Open-source finance LLMs:} FinGPT \citep{Yang2023} and InvestLM provide open-source alternatives for financial NLP, enabling reproducible research.
 \end{itemize}
@@ -41,7 +41,7 @@ Beyond sentiment, ML methods extract structured information from news:
 
     \item \textbf{Reddit (WallStreetBets):} The GameStop episode (January 2021) catalyzed academic interest in retail investor coordination on social media. \citet{Bradley2021} analyze the information content of Reddit posts for stock prediction.
 
-    \item \textbf{StockTwits:} A dedicated financial social platform that provides labeled bullish/bearish sentiment, making it a convenient training dataset for sentiment models \citep{Oliveira2017}.
+    \item \textbf{StockTwits:} a dedicated financial social platform whose posts ship with bullish or bearish labels, which makes it a convenient training set for sentiment models \citep{Oliveira2017}.
 \end{itemize}
 
 \subsection{Non-Textual Alternative Data}

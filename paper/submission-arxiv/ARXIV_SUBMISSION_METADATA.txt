@@ -1,0 +1,24 @@
+arXiv Submission Metadata for Paper 1
+======================================
+
+Title: Machine Learning in Quantitative Finance: A Systematic Review of Methods, Applications, and Open Challenges (2015-2025)
+
+Author: Akram Khan
+
+Primary Category: q-fin.CP (Computational Finance)
+Cross-list: q-fin.GN (General Finance), cs.LG (Machine Learning), stat.ML (Machine Learning)
+
+Note: If you lack endorsement for q-fin, submit to cs.LG as primary (no endorsement needed)
+and cross-list to q-fin. This still makes the paper discoverable in both communities.
+
+Abstract: [same as SSRN, copy from the SSRN metadata file]
+
+Comments: 40 pages, 6 tables, 3 appendix tables. Systematic review.
+
+MSC-class: 91G10, 62P05, 68T05
+ACM-class: I.2.6, J.4
+
+Source file: Khan_2026_ML_Survey_arXiv.zip
+Contains: main.tex, sections/*.tex, bib/references.bib
+
+Compilation: Tectonic or pdflatex + bibtex (tested and working)
